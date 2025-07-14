@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GESSA AGROSERVICIOS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+    header { background: #3a763a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav { display: flex; align-items: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    .lang-switch { background: white; color: #3a763a; padding: 0.3rem 0.6rem; border: none; cursor: pointer; display: flex; align-items: center; margin-left: 1rem; height: 32px; }
+    .lang-switch img { width: 20px; height: 14px; margin-left: 0.5rem; }
+    .container { padding: 2rem; max-width: 1000px; margin: auto; background: white; }
+    h1, h2 { color: #3a763a; }
+    footer { background: #3a763a; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+    .hero-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+    .section-image { width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>GESSA AGROSERVICIOS</strong></div>
+    <nav>
+      <a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="productos.html" data-es="Productos" data-en="Products">Productos</a>
+      <a href="nosotros.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+      <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+      <button class="lang-switch" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <img id="lang-flag" src="https://flagcdn.com/w40/us.png" alt="Idioma">
+      </button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <img class="hero-image" src="https://images.pexels.com/photos/388415/pexels-photo-388415.jpeg" alt="Campos agrícolas">
+
+    <h1 data-es="Bienvenidos a GESSA AGROSERVICIOS" data-en="Welcome to GESSA AGROSERVICIOS">Bienvenidos a GESSA AGROSERVICIOS</h1>
+    <p data-es="Con sede en Los Mochis, Sinaloa, somos una empresa dedicada a la comercialización de granos y semillas de alta calidad, brindando soluciones agrícolas confiables y eficientes." 
+       data-en="Based in Los Mochis, Sinaloa, we are a company dedicated to the commercialization of high-quality grains and seeds, offering reliable and efficient agricultural solutions.">
+       Con sede en Los Mochis, Sinaloa, somos una empresa dedicada a la comercialización de granos y semillas de alta calidad, brindando soluciones agrícolas confiables y eficientes.
+    </p>
+
+    <h2 id="servicios" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+    <img class="section-image" src="https://images.pexels.com/photos/164504/pexels-photo-164504.jpeg" alt="Servicio agrícola">
+    <ul>
+      <li data-es="Compra y venta de granos y semillas" data-en="Purchase and sale of grains and seeds">Compra y venta de granos y semillas</li>
+      <li data-es="Asesoría agrícola y soporte técnico" data-en="Agricultural consulting and technical support">Asesoría agrícola y soporte técnico</li>
+      <li data-es="Logística de transporte y almacenamiento" data-en="Transportation and storage logistics">Logística de transporte y almacenamiento</li>
+    </ul>
+
+    <h2 id="productos" data-es="Nuestros Productos" data-en="Our Products">Nuestros Productos</h2>
+    <img class="section-image" src="https://images.pexels.com/photos/7420515/pexels-photo-7420515.jpeg" alt="Productos agrícolas">
+    <ul>
+      <li data-es="Maíz" data-en="Corn">Maíz</li>
+      <li data-es="Trigo" data-en="Wheat">Trigo</li>
+      <li data-es="Sorgo" data-en="Sorghum">Sorgo</li>
+      <li data-es="Soya" data-en="Soy">Soya</li>
+    </ul>
+
+    <h2 id="nosotros" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</h2>
+    <img class="section-image" src="https://images.pexels.com/photos/10041309/pexels-photo-10041309.jpeg" alt="Equipo agrícola">
+    <p data-es="GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional, con un enfoque en la sustentabilidad y la confianza." 
+       data-en="GESSA AGROSERVICIOS was born with the vision of offering quality products to the Mexican and international agricultural sector, focusing on sustainability and trust.">
+       GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional, con un enfoque en la sustentabilidad y la confianza.
+    </p>
+
+    <h2 id="contacto" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h2>
+    <p data-es="Ubicación: Los Mochis, Sinaloa" data-en="Location: Los Mochis, Sinaloa">Ubicación: Los Mochis, Sinaloa</p>
+    <p data-es="Correo: contacto@gessaagro.com" data-en="Email: contacto@gessaagro.com">Correo: contacto@gessaagro.com</p>
+    <p data-es="Teléfono: +52 668 123 4567" data-en="Phone: +52 668 123 4567">Teléfono: +52 668 123 4567</p>
+  </div>
+
+  <footer>
+    &copy; 2025 GESSA AGROSERVICIOS. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    let currentLang = 'es';
+    function toggleLanguage() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+      document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
+      document.getElementById('lang-flag').src = currentLang === 'es' 
+        ? 'https://flagcdn.com/w40/us.png' 
+        : 'https://flagcdn.com/w40/mx.png';
+    }
+  </script>
+</body>
+</html>

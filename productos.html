@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - GESSA AGROSERVICIOS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+    header { background: #3a763a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav { display: flex; align-items: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    .lang-switch { background: white; color: #3a763a; padding: 0.3rem 0.6rem; border: none; cursor: pointer; display: flex; align-items: center; margin-left: 1rem; height: 32px; }
+    .lang-switch img { width: 20px; height: 14px; margin-left: 0.5rem; }
+    h1, h2, h3 { color: #3a763a; }
+    .container { padding: 2rem; max-width: 1000px; margin: auto; background: white; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>GESSA AGROSERVICIOS</strong></div>
+    <nav>
+      <a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="productos.html" data-es="Productos" data-en="Products">Productos</a>
+      <a href="nosotros.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+      <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+      <button class="lang-switch" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <img id="lang-flag" src="https://flagcdn.com/w40/us.png" alt="Idioma">
+      </button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="productos" style="margin-top: 3rem;">
+      <h2 data-es="Nuestros Productos" data-en="Our Products">Nuestros Productos</h2>
+      <div style="overflow: hidden; border-radius: 8px; margin-top: 1rem;">
+        <img src="https://images.pexels.com/photos/7420515/pexels-photo-7420515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400" 
+             alt="Productos agrícolas"
+             style="width: 100%; max-height: 250px; object-fit: cover; display: block;">
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Maíz" data-en="Corn">Maíz</h3>
+          <p data-es="Maíz amarillo y blanco de alta calidad, ideal para consumo humano, forraje y procesos industriales." 
+             data-en="High-quality yellow and white corn, ideal for human consumption, livestock feed, and industrial use.">
+             Maíz amarillo y blanco de alta calidad, ideal para consumo humano, forraje y procesos industriales.
+          </p>
+        </div>
+
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Trigo" data-en="Wheat">Trigo</h3>
+          <p data-es="Suministramos trigo harinero y panificable, cumpliendo con los más altos estándares del mercado." 
+             data-en="We supply milling and baking-grade wheat, meeting the highest market standards.">
+             Suministramos trigo harinero y panificable, cumpliendo con los más altos estándares del mercado.
+          </p>
+        </div>
+
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Sorgo" data-en="Sorghum">Sorgo</h3>
+          <p data-es="Ideal para consumo animal, el sorgo es una excelente fuente de energía y resistencia en climas áridos." 
+             data-en="Ideal for animal feed, sorghum is an excellent energy source and thrives in arid climates.">
+             Ideal para consumo animal, el sorgo es una excelente fuente de energía y resistencia en climas áridos.
+          </p>
+        </div>
+
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Soya" data-en="Soy">Soya</h3>
+          <p data-es="Soya de calidad para uso alimenticio e industrial, con alto valor proteico y excelente rendimiento." 
+             data-en="High-quality soybeans for food and industrial use, rich in protein and excellent in yield.">
+             Soya de calidad para uso alimenticio e industrial, con alto valor proteico y excelente rendimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let currentLang = 'es';
+    function toggleLanguage() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+      document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
+      document.getElementById('lang-flag').src = currentLang === 'es'
+        ? 'https://flagcdn.com/w40/us.png'
+        : 'https://flagcdn.com/w40/mx.png';
+    }
+  </script>
+
+</body>
+</html>

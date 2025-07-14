@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - GESSA AGROSERVICIOS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+    header { background: #3a763a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav { display: flex; align-items: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    .lang-switch { background: white; color: #3a763a; padding: 0.3rem 0.6rem; border: none; cursor: pointer; display: flex; align-items: center; margin-left: 1rem; height: 32px; }
+    .lang-switch img { width: 20px; height: 14px; margin-left: 0.5rem; }
+    h1, h2, h3 { color: #3a763a; }
+    .container { padding: 2rem; max-width: 1000px; margin: auto; background: white; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>GESSA AGROSERVICIOS</strong></div>
+    <nav>
+      <a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="productos.html" data-es="Productos" data-en="Products">Productos</a>
+      <a href="nosotros.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+      <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+      <button class="lang-switch" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <img id="lang-flag" src="https://flagcdn.com/w40/us.png" alt="Idioma">
+      </button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="servicios" style="margin-top: 3rem;">
+      <h2 data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+      <div style="overflow: hidden; border-radius: 8px; margin-top: 1rem;">
+        <img src="https://images.pexels.com/photos/2255801/pexels-photo-2255801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400" 
+             alt="Servicio agrícola"
+             style="width: 100%; max-height: 250px; object-fit: cover; display: block;">
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Comercialización de granos y semillas" data-en="Grain and Seed Trading">Comercialización de granos y semillas</h3>
+          <p data-es="Ofrecemos compra y venta de productos agrícolas como maíz, trigo, sorgo y soya, garantizando calidad y cumplimiento." 
+             data-en="We offer the purchase and sale of agricultural products such as corn, wheat, sorghum, and soybeans, ensuring quality and compliance.">
+             Ofrecemos compra y venta de productos agrícolas como maíz, trigo, sorgo y soya, garantizando calidad y cumplimiento.
+          </p>
+        </div>
+
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Asesoría y soporte técnico" data-en="Technical Advice and Support">Asesoría y soporte técnico</h3>
+          <p data-es="Acompañamos a nuestros clientes con orientación personalizada, análisis de suelo, y recomendaciones agronómicas." 
+             data-en="We support our clients with personalized guidance, soil analysis, and agronomic recommendations.">
+             Acompañamos a nuestros clientes con orientación personalizada, análisis de suelo, y recomendaciones agronómicas.
+          </p>
+        </div>
+
+        <div style="flex: 1 1 280px; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
+          <h3 data-es="Logística y distribución" data-en="Logistics and Distribution">Logística y distribución</h3>
+          <p data-es="Coordinamos el transporte, almacenamiento y entrega eficiente de productos agrícolas en tiempo y forma." 
+             data-en="We coordinate the efficient transportation, storage, and delivery of agricultural products on time.">
+             Coordinamos el transporte, almacenamiento y entrega eficiente de productos agrícolas en tiempo y forma.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let currentLang = 'es';
+    function toggleLanguage() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+      document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
+      document.getElementById('lang-flag').src = currentLang === 'es'
+        ? 'https://flagcdn.com/w40/us.png'
+        : 'https://flagcdn.com/w40/mx.png';
+    }
+  </script>
+
+</body>
+</html>

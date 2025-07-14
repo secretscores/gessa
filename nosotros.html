@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros - GESSA AGROSERVICIOS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+    header { background: #3a763a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav { display: flex; align-items: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    .lang-switch { background: white; color: #3a763a; padding: 0.3rem 0.6rem; border: none; cursor: pointer; display: flex; align-items: center; margin-left: 1rem; height: 32px; }
+    .lang-switch img { width: 20px; height: 14px; margin-left: 0.5rem; }
+    h1, h2, h3 { color: #3a763a; }
+    .container { padding: 2rem; max-width: 1000px; margin: auto; background: white; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>GESSA AGROSERVICIOS</strong></div>
+    <nav>
+      <a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="productos.html" data-es="Productos" data-en="Products">Productos</a>
+      <a href="nosotros.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+      <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+      <button class="lang-switch" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <img id="lang-flag" src="https://flagcdn.com/w40/us.png" alt="Idioma">
+      </button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="nosotros" style="margin-top: 3rem;">
+      <h2 data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</h2>
+      <div style="overflow: hidden; border-radius: 8px; margin-top: 1rem;">
+        <img src="https://images.pexels.com/photos/10041309/pexels-photo-10041309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400"
+             alt="Equipo GESSA"
+             style="width: 100%; max-height: 250px; object-fit: cover; display: block;">
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <p data-es="GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional. Buscamos fortalecer el campo con prácticas sustentables, transparencia en nuestras operaciones y un profundo compromiso con nuestros clientes y colaboradores." 
+           data-en="GESSA AGROSERVICIOS was born with the vision of offering quality products to the Mexican and international agricultural sector. We strive to strengthen the field through sustainable practices, transparency in our operations, and a strong commitment to our clients and partners.">
+           GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional. Buscamos fortalecer el campo con prácticas sustentables, transparencia en nuestras operaciones y un profundo compromiso con nuestros clientes y colaboradores.
+        </p>
+
+        <p data-es="Nuestro equipo está conformado por expertos en comercialización agrícola, logística y asesoría técnica, lo que nos permite brindar soluciones integrales para el campo." 
+           data-en="Our team is made up of experts in agricultural trade, logistics, and technical consulting, allowing us to offer comprehensive solutions for the agricultural sector.">
+           Nuestro equipo está conformado por expertos en comercialización agrícola, logística y asesoría técnica, lo que nos permite brindar soluciones integrales para el campo.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let currentLang = 'es';
+    function toggleLanguage() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+      document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
+      document.getElementById('lang-flag').src = currentLang === 'es'
+        ? 'https://flagcdn.com/w40/us.png'
+        : 'https://flagcdn.com/w40/mx.png';
+    }
+  </script>
+
+</body>
+</html>
