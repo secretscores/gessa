@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GESSA AGROSERVICIOS</title>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
-    header { background: #3a763a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    nav { display: flex; align-items: center; }
-    nav a { color: white; margin: 0 1rem; text-decoration: none; }
-    .lang-switch { background: white; color: #3a763a; padding: 0.3rem 0.6rem; border: none; cursor: pointer; display: flex; align-items: center; margin-left: 1rem; height: 32px; }
-    .lang-switch img { width: 20px; height: 14px; margin-left: 0.5rem; }
-    .container { padding: 2rem; max-width: 1000px; margin: auto; background: white; }
-    h1, h2 { color: #3a763a; }
-    footer { background: #3a763a; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
-    .hero-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
-    .section-image { width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; margin: 1rem 0; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    header { background:#3a763a; color:#fff; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    nav { display:flex; align-items:center; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; }
+    .lang-switch { background:#fff; color:#3a763a; padding:0.3rem 0.6rem; border:none; cursor:pointer; display:flex; align-items:center; margin-left:1rem; height:32px; }
+    .lang-switch img { width:20px; height:14px; margin-left:0.5rem; }
+    .container { padding:2rem; max-width:1000px; margin:auto; background:#fff; }
+    h1, h2 { color:#3a763a; }
+    footer { background:#3a763a; color:#fff; text-align:center; padding:1rem; margin-top:2rem; }
+    .hero-image { width:100%; max-height:300px; object-fit:cover; border-radius:8px; margin-bottom:2rem; }
+    .section-image { width:100%; max-height:220px; object-fit:cover; border-radius:8px; margin:1rem 0; }
+
+    /* Mapa */
+    #map { width:100%; height:450px; border-radius:8px; }
+    .leaflet-container { font:14px/1.4 Arial, sans-serif; }
   </style>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
   <header>
@@ -37,7 +46,7 @@
     <img class="hero-image" src="https://images.pexels.com/photos/388415/pexels-photo-388415.jpeg" alt="Campos agrícolas">
 
     <h1 data-es="Bienvenidos a GESSA AGROSERVICIOS" data-en="Welcome to GESSA AGROSERVICIOS">Bienvenidos a GESSA AGROSERVICIOS</h1>
-    <p data-es="Con sede en Los Mochis, Sinaloa, somos una empresa dedicada a la comercialización de granos y semillas de alta calidad, brindando soluciones agrícolas confiables y eficientes." 
+    <p data-es="Con sede en Los Mochis, Sinaloa, somos una empresa dedicada a la comercialización de granos y semillas de alta calidad, brindando soluciones agrícolas confiables y eficientes."
        data-en="Based in Los Mochis, Sinaloa, we are a company dedicated to the commercialization of high-quality grains and seeds, offering reliable and efficient agricultural solutions.">
        Con sede en Los Mochis, Sinaloa, somos una empresa dedicada a la comercialización de granos y semillas de alta calidad, brindando soluciones agrícolas confiables y eficientes.
     </p>
@@ -59,9 +68,17 @@
       <li data-es="Soya" data-en="Soy">Soya</li>
     </ul>
 
+    <!-- ===== MAPA CON MARCADORES (Leaflet) ===== -->
+    <h2 id="mapa" data-es="Nuestras Ubicaciones" data-en="Our Locations">Nuestras Ubicaciones</h2>
+    <p data-es="Consulta en el mapa las zonas donde tenemos presencia." data-en="Check the map for the areas where we have presence.">
+      Consulta en el mapa las zonas donde tenemos presencia.
+    </p>
+    <div id="map" aria-label="Mapa de ubicaciones"></div>
+    <!-- ===== FIN MAPA ===== -->
+
     <h2 id="nosotros" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</h2>
     <img class="section-image" src="https://images.pexels.com/photos/10041309/pexels-photo-10041309.jpeg" alt="Equipo agrícola">
-    <p data-es="GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional, con un enfoque en la sustentabilidad y la confianza." 
+    <p data-es="GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional, con un enfoque en la sustentabilidad y la confianza."
        data-en="GESSA AGROSERVICIOS was born with the vision of offering quality products to the Mexican and international agricultural sector, focusing on sustainability and trust.">
        GESSA AGROSERVICIOS nace con la visión de ofrecer productos de calidad al sector agrícola mexicano e internacional, con un enfoque en la sustentabilidad y la confianza.
     </p>
@@ -78,16 +95,50 @@
 
   <script>
     let currentLang = 'es';
-    function toggleLanguage() {
-      currentLang = currentLang === 'es' ? 'en' : 'es';
-      document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + currentLang);
-      });
-      document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
-      document.getElementById('lang-flag').src = currentLang === 'es' 
-        ? 'https://flagcdn.com/w40/us.png' 
-        : 'https://flagcdn.com/w40/mx.png';
+
+    const LOCATIONS = [
+      { coords:[24.084154646605118, -104.56103455462511], name:{es:'Durango',en:'Durango'}, address:{es:'San Carlos, Durango',en:'San Carlos, Durango'} },
+      { coords:[25.811033023397343, -108.9235666197304],  name:{es:'Sinaloa',en:'Sinaloa'}, address:{es:'Los Mochis, Sinaloa',en:'Los Mochis, Sinaloa'} },
+      { coords:[17.56812209760562, -92.93643226760898],   name:{es:'Tabasco',en:'Tabasco'}, address:{es:'Teapa, Tabasco',en:'Teapa, Tabasco'} },
+      { coords:[29.021404798288746, -107.44278427370182], name:{es:'Chihuahua',en:'Chihuahua'}, address:{es:'El Entronque, Chihuahua',en:'El Entronque, Chihuahua'} },
+      { coords:[18.53993871822953, -97.49691326205898],   name:{es:'Puebla',en:'Puebla'}, address:{es:'Tehuacán, Puebla',en:'Tehuacán, Puebla'} },
+      { coords:[25.528124699253702, -103.37327290993754], name:{es:'Coahuila',en:'Coahuila'}, address:{es:'Torreón, Coahuila',en:'Torreón, Coahuila'} },
+      { coords:[17.235940893873558, -96.82312702158042],  name:{es:'Oaxaca',en:'Oaxaca'}, address:{es:'Magdalena Apasco, Oaxaca',en:'Magdalena Apasco, Oaxaca'} },
+      { coords:[16.688077077227998, -93.02023616575899],  name:{es:'Chiapas',en:'Chiapas'}, address:{es:'Las Flechas, Chiapas',en:'Las Flechas, Chiapas'} }
+    ];
+
+    const map = L.map('map',{zoomControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+    const markersLayer = L.layerGroup().addTo(map);
+
+    function popupHtml(loc){
+      const title = loc.name[currentLang]||loc.name.es;
+      const addr  = loc.address[currentLang]||loc.address.es||'';
+      return `<div style="min-width:200px"><div style="font-weight:bold;margin-bottom:4px;">${title}</div>${addr?`<div>${addr}</div>`:''}</div>`;
     }
+
+    function renderMarkers(){
+      markersLayer.clearLayers();
+      const bounds=[];
+      LOCATIONS.forEach(loc=>{
+        L.marker(loc.coords).bindPopup(popupHtml(loc)).addTo(markersLayer);
+        bounds.push(loc.coords);
+      });
+      if(bounds.length>1) map.fitBounds(bounds,{padding:[20,20]});
+      else if(bounds.length===1) map.setView(bounds[0],7);
+    }
+    renderMarkers();
+
+    function toggleLanguage(){
+      currentLang=currentLang==='es'?'en':'es';
+      document.querySelectorAll('[data-es]').forEach(el=>{
+        el.textContent=el.getAttribute('data-'+currentLang);
+      });
+      document.getElementById('lang-label').textContent=currentLang==='es'?'EN':'ES';
+      document.getElementById('lang-flag').src=currentLang==='es'?'https://flagcdn.com/w40/us.png':'https://flagcdn.com/w40/mx.png';
+      renderMarkers();
+    }
+    window.toggleLanguage=toggleLanguage;
   </script>
 </body>
 </html>
